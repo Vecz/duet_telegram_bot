@@ -49,6 +49,8 @@
 - ffmpeg-python
 - pillow
 - redis
+- OpenvCv
+  maybe something else
 ## Acknowledgements
 This project was developed by Vecz 28.10.2023
 Tested with reprapfrimware 3.4.4
