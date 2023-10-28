@@ -1,0 +1,20 @@
+from aiogram.fsm.state import StatesGroup, State
+
+class CameraStates(StatesGroup):
+    MainMenu = State()
+    Settings = State()
+    Status = State()
+    Printing = State()
+    PrinterControl = State()
+    Root = State()
+    Locale = State()
+    ListOfVideos = State()
+    LastShot = State()
+    IpPrinter = State()
+    IpCamera = State()
+    SendFilesToPrint = State()
+    FromStorage = State()
+    FromUrl = State()
+    FromFile = State()
+    RunMacros = State()
+    SendGcode = State()

@@ -1,0 +1,106 @@
+{
+    "buttons": {
+        "back": "Back\n",
+        "main_menu": {
+            "settings": "Settings\n",
+            "status": "Status\n",
+            "sftp": "Send file to print\n",
+            "printer_control": "Printer control\n",
+            "list_of_videos": "List of recordings\n"
+        },
+        "settings": {
+            "root": "User management\n",
+            "lang": "Change language\n",
+            "main_menu": "Main menu\n"
+        },
+        "root": {
+            "leave_root": "Leave root\n",
+            "ip_printer": "IP printer\n",
+            "ip_camera": "IP camera\n",
+            "settings": "Settings\n" 
+        },
+        "lang": {
+            "settings": "Settings\n"
+        },
+        "status": {
+            "status": "Status\n",
+            "last_shot": "Last camera shot\n",
+            "cancel": "Cancel\n",
+            "main_menu": "Main menu\n"
+        },
+        "last_shot": {
+            "refresh": "Refresh\n",
+            "status": "Status\n"
+        },
+        "root_warning": {
+            "become_root": "Become root\n",
+            "ip_printer": "IP printer\n",
+            "ip_camera": "IP camera\n",
+            "access": "Access\n",
+            "settings": "Settings\n" 
+        },
+        "change_ip": {
+            "root": "Root\n"
+        },
+        "list_of_videos": {
+            "main_menu": "Main menu\n"
+        },
+        "sftp": {
+            "from_storage": "From storage\n",
+            "from_url": "By URL\n",
+            "from_file": "Send G-code\n",
+            "main_menu": "Main menu\n"
+        },
+        "load_file": {
+            "sftp": "SFTP\n"
+        },
+        "printer_control": {
+            "send_gcode": "Send G-code\n",
+            "run_macros": "Run macro\n",
+            "main_menu": "Main menu\n"
+        },
+        "send_gcode": {
+            "printer_control": "Printer control\n"
+        }
+    },
+    "messages": {
+        "heater": "Heater {} - {}\n",
+        "last_shot": "Last camera shot\n",
+        "main_menu": "You are in the main menu\n",
+        "settings": "List of bot settings\n",
+        "lang": "Language\n",
+        "value_changed": "Value changed\n",
+        "control_users": "Control users\n",
+        "status": "Status - {}\n",
+        "percent": "Percent - {:.2f}%\n",
+        "estimated": "Estimated - {}h {}m {}s\n",
+        "name": "File name - {}\n",
+        "file_name": "File name\n",
+        "idk": "I don't know\n",
+        "setup_need": "Setup needed\n",
+        "connect_fail": "Connection failed\n",
+        "cancel": "Cancel\n",
+        "root_warning": "Not root\n",
+        "not_root": "Not root\n",
+        "root": "Root\n",
+        "change_ip": "Change IP\n",
+        "ip": "IP: {}\n",
+        "camera": "Camera\n",
+        "printer": "Printer\n",
+        "new_video": "New video\n",
+        "list_of_videos": "List of recordings\n",
+        "error": "Error\n",
+        "sftp": "Send file to print\n",
+        "from_storage": "From storage\n",
+        "success": "Success\n",
+        "next": "Next\n",
+        "back": "Back\n",
+        "page": "Page\n",
+        "from_file": "From file\n",
+        "from_url": "From URL: {}\n",
+        "loading": "Loading\n",
+        "printer_control": "Printer control\n",
+        "run_macros": "Run macros\n",
+        "send_gcode": "Send G-code\n"
+    }
+}
