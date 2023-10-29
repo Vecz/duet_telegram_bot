@@ -16,8 +16,11 @@ class FileCallbackMiddleware(BaseMiddleware):
         event: CallbackQuery,
         data: Dict[str, Any]
     ) -> Any:
-        locale = await dbFunc.get(event.from_user.id)
-        locale = locale.locale
+        try:
+            locale = await dbFunc.get(event.from_user.id)
+            locale = locale.locale
+        except:
+            locale = "EN"
         new_file = await fFunc.check_new()
         if new_file != None:
             msg = await load_message(locale, "new_video")

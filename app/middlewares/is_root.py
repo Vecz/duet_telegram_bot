@@ -14,8 +14,11 @@ class RootCallbackMiddleware(BaseMiddleware):
         data: Dict[str, Any]
     ) -> Any:
         
-        locale = await dbFunc.get(event.from_user.id)
-        locale = locale.locale
+        try:
+            locale = await dbFunc.get(event.from_user.id)
+            locale = locale.locale
+        except:
+            locale = "EN"
         root = await dbFunc.get_root()
         if root == None:
             msg = await load_message(locale, "root_warning")
