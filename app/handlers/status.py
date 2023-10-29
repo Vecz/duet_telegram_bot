@@ -1,18 +1,15 @@
 from aiogram import F, Router, types
-from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
-from aiogram.types import Message, BufferedInputFile, URLInputFile, InputMediaPhoto
+from aiogram.types import URLInputFile, InputMediaPhoto
 from app.models import DBfunc, db
 from app.keys import make_keyboard, load_message
 from app.states import CameraStates
+from aiogram.utils.callback_answer import CallbackAnswer
+from aiogram.utils.callback_answer import CallbackAnswerMiddleware
 import aiohttp
-from PIL import Image
-import io
-from PIL import ImageFile
 router = Router()
 dbFunc = DBfunc()
-
-
+router.callback_query.middleware(CallbackAnswerMiddleware(pre=False, text="Готово!", show_alert=False))
 @router.callback_query(CameraStates.LastShot, F.data == "refresh")
 async def lastShot(callback: types.CallbackQuery, state: FSMContext):
     locale = await dbFunc.get(callback.from_user.id)
@@ -28,10 +25,21 @@ async def lastShot(callback: types.CallbackQuery, state: FSMContext):
     await callback.answer()
 
 @router.callback_query(CameraStates.Status, F.data == "cancel")
-async def lastShot(callback: types.CallbackQuery, state: FSMContext):
+async def lastShot(callback: types.CallbackQuery, state: FSMContext, callback_answer: CallbackAnswer):
     locale = await dbFunc.get(callback.from_user.id)
     locale = locale.locale
     root = await dbFunc.get_root()
+    if root == None:
+        msg = await load_message(locale, "root_warning")
+        callback_answer.text = msg
+        callback_answer.show_alert = True
+    elif callback.from_user.id == root.user_id:
+        ...
+    else:
+        msg = await load_message(locale, "not_root")
+        callback_answer.text = msg
+        callback_answer.show_alert = True
+        return
     keyboard = await make_keyboard(locale, "status")
     messages = await load_message(locale, "cancel","status")
     printer_url = root.printer_ip

@@ -27,13 +27,13 @@ async def main():
     dp = Dispatcher(storage=RedisStorage(storage))
     await init_db()
     #router
+    dp.include_router(mm_router)
+    dp.include_router(lof_router)
+    dp.include_router(bs_router)
+    dp.include_router(st_router)
     dp.include_router(pc_router)
     dp.include_router(sftp_router)
-    dp.include_router(lof_router)
     dp.include_router(root_router)
-    dp.include_router(st_router)
-    dp.include_router(bs_router)
-    dp.include_router(mm_router)
 
     #middleware
     dp.callback_query.outer_middleware(FileCallbackMiddleware())
