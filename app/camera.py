@@ -7,7 +7,7 @@ import time
 import logging
 import asyncio
 from app.models import db, DBfunc, Filefunc
-from config.config import FPS, WANTED_TIME, VIDEO_DIR, W, H
+from config.config import FPS, WANTED_TIME, VIDEO_DIR, W, H, TIME_BEFORE_START
 from app.compress_video import compress_video
 import os
 ImageFile.LOAD_TRUNCATED_IMAGES = True
@@ -37,7 +37,7 @@ async def capture(bot):
                     status = r['result']["status"]
                 async with session.get(printer_url+"/rr_fileinfo") as resp:    
                     r = await resp.json()
-                a = r['printTime'] - r['printDuration']
+                a = r['printTime'] - r['printDuration'] + TIME_BEFORE_START
                 if(status != "processing"):
                     raise Exception("Not printing")
                 name = (r['fileName'].split("/")[-1]).split('.')[0]
