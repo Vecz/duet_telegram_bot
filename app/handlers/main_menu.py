@@ -44,16 +44,3 @@ async def cmd_back(callback: types.CallbackQuery, state: FSMContext):
     await state.set_state(CameraStates.MainMenu)
     await callback.answer()
 
-@router.message()
-async def empty(message: Message, state: FSMContext):
-    await state.clear()
-    await dbFunc.add(message.from_user.id)
-    locale = await dbFunc.get(message.from_user.id)
-    locale = locale.locale
-    keyboard = await make_keyboard(locale, "main_menu")
-    messages = await load_message(locale, "idk", "main_menu")
-    await message.answer(
-        text=messages,
-        reply_markup=keyboard,
-    )
-    await state.set_state(CameraStates.MainMenu)

@@ -107,3 +107,17 @@ async def camera(message: types.Message, state: FSMContext):
         text= messages,
         reply_markup=keyboard
     )
+
+@router.message()
+async def empty(message: types.Message, state: FSMContext):
+    await state.clear()
+    await dbFunc.add(message.from_user.id, message.chat.id)
+    locale = await dbFunc.get(message.from_user.id)
+    locale = locale.locale
+    keyboard = await make_keyboard(locale, "main_menu")
+    messages = await load_message(locale, "idk", "main_menu")
+    await message.answer(
+        text=messages,
+        reply_markup=keyboard,
+    )
+    await state.set_state(CameraStates.MainMenu)
