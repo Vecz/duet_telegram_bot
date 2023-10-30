@@ -69,7 +69,7 @@ async def capture(bot):
                 out.release()
                 logger.info(f"Wideo dumped")
                 try:
-                    filename = compress_video(VIDEO_DIR+output_file, 50*1000)
+                    filename = await compress_video(VIDEO_DIR+output_file, 50*1000)
                     os.remove(VIDEO_DIR+output_file)
                     output_file = filename.split(VIDEO_DIR)[-1]
                 except Exception as e:
