@@ -55,15 +55,7 @@ We place special emphasis on documentation to provide a clear understanding of t
 - Ensure you have the necessary dependencies installed.
 - Set up your configuration in config/config.py.
 - Run main.py to start the bot.
-## Dependencies
-- aiogram
-- aiohttp
-- gino
-- ffmpeg-python
-- pillow
-- redis
-- OpenvCv
-  maybe something else
+
 ## Acknowledgements
 This project was developed by Vecz 28.10.2023
 Tested with reprapfrimware 3.4.4
